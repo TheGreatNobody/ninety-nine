@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex align-items-center vh-100">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h2 class="text-center">Login</h2>
+            <form th:action="@{/login}" method="post">
+                <label>自訂登入頁</label>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div th:if="${error}" class="alert alert-danger" role="alert">
+                    <span th:text="${error}"></span>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">MyApp</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+            </ul>
+            <form th:action="@{/login}" method="get" class="d-flex">
+                <button class="btn btn-outline-danger" type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h1>Welcome to the Home Page!</h1>
+</div>
+</body>
+</html>
