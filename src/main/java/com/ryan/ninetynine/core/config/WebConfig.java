@@ -9,11 +9,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
+    private final String RESOURCE_LOCATIONS = "src/main/resources/";
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry
-                .addResourceHandler("/webjars/**")
-                .addResourceLocations("/webjars/");
+        if (!registry.hasMappingForPattern("/webjars/**")) {
+            registry.addResourceHandler("/webjars/**")
+                    .addResourceLocations(
+                            "classpath:/META-INF/resources/webjars/");
+        }
+        if (!registry.hasMappingForPattern("/**")) {
+            registry.addResourceHandler("/**").addResourceLocations(
+                    RESOURCE_LOCATIONS);
+        }
     }
-
 }

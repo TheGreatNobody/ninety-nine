@@ -35,7 +35,8 @@ public class SecurityConfig {//implements WebMvcConfigurer {
                                 , "/api/authentication/**"
                                 , "/login"
                                 , "/error"
-                                , "/api/**")
+                                , "/api/**"
+                                , "/webjars/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated()
