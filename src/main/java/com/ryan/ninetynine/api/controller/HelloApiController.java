@@ -1,10 +1,8 @@
 package com.ryan.ninetynine.api.controller;
 
 import io.swagger.v3.oas.annotations.Parameter;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api")
@@ -19,5 +17,14 @@ public class HelloApiController {
     public String sayHelloByPath(@PathVariable String name) {
         return "Hello {name} World!";
     }
+
+    @PostMapping("hello")
+    public UserForm sayHello(@RequestBody UserBean userBean) {
+        return UserForm.builder()
+                .name(userBean.getName())
+                .id(userBean.getId())
+                .email("ryan@gamil.com").build();
+    }
+
 
 }
